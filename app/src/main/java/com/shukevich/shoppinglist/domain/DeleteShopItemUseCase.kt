@@ -1,7 +1,7 @@
 package com.shukevich.shoppinglist.domain
 
-class DeleteShopItemUseCase {
+class DeleteShopItemUseCase(private val shopListRepository: ShopListRepository) {
     fun deleteShopItem(shopItem: ShopItem){
-        TODO()
+        shopListRepository.deleteShopItem(shopItem)
     }
 }
