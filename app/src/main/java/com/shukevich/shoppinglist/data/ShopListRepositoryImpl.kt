@@ -5,22 +5,26 @@ import androidx.lifecycle.MutableLiveData
 import com.shukevich.shoppinglist.domain.ShopItem
 import com.shukevich.shoppinglist.domain.ShopListRepository
 
-object ShopListRepositoryImpl: ShopListRepository {
+object ShopListRepositoryImpl : ShopListRepository {
 
-    private val shopList = mutableListOf<ShopItem>()
     private val shopListLD = MutableLiveData<List<ShopItem>>()
+
+    private val shopList = sortedSetOf<ShopItem>({ o1, o2 ->
+        o1.id.compareTo(o2.id)
+    })
+
     private var autoIncrementId = 0
 
 
     init {
-        for(i in 0 until 10){
-            val item = ShopItem(name = "Name $i",i,true)
+        for (i in 0 until 10) {
+            val item = ShopItem(name = "Name $i", i, true)
             addShopItem(item)
         }
     }
 
     override fun addShopItem(shopItem: ShopItem) {
-        if(shopItem.id == ShopItem.UNDEFINED_ID){ // проверка, новый ли это айтем
+        if (shopItem.id == ShopItem.UNDEFINED_ID) { // проверка, новый ли это айтем
             shopItem.id = autoIncrementId++
         }
         shopList.add(shopItem)
@@ -48,7 +52,7 @@ object ShopListRepositoryImpl: ShopListRepository {
         return shopListLD
     }
 
-    private fun updateList(){
+    private fun updateList() {
         shopListLD.value = shopList.toList()  // обновление лайвдаты
     }
 }
