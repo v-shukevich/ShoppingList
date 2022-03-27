@@ -1,6 +1,5 @@
-package com.shukevich.shoppinglist.preaentation
+package com.shukevich.shoppinglist.presentation
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shukevich.shoppinglist.data.ShopListRepositoryImpl  // не должно быть дата слоя
 import com.shukevich.shoppinglist.domain.DeleteShopItemUseCase

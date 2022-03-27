@@ -1,11 +1,10 @@
-package com.shukevich.shoppinglist.preaentation
+package com.shukevich.shoppinglist.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.shukevich.shoppinglist.R
-import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 
