@@ -17,8 +17,8 @@ class ShopItemViewModel : ViewModel() {
     private val addShopItemUseCase = AddShopItemUseCase(repository)
     private val editShopItemUseCase = EditShopItemUseCase(repository)
 
-    private val _errorInputName = MutableLiveData<Boolean>()
-    val errorInputName: LiveData<Boolean>
+    private val _errorInputName = MutableLiveData<Boolean>() //можем менять
+    val errorInputName: LiveData<Boolean>                   // нельзя менять но можно передать внешне
         get() = _errorInputName
 
     private val _errorInputCount = MutableLiveData<Boolean>()
