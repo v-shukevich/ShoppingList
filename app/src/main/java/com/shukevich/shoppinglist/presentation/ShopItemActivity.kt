@@ -14,7 +14,7 @@ import com.shukevich.shoppinglist.R
 import com.shukevich.shoppinglist.domain.ShopItem
 
 
-class ShopItemActivity : AppCompatActivity() {
+class ShopItemActivity : AppCompatActivity(),ShopItemFragment.OnEditingFinishedListener {
 
 
     private var screenMode = MODE_UNKNOW
@@ -28,6 +28,10 @@ class ShopItemActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             launchRightMode()                         //запускаем правильный режим экрана
         }
+    }
+
+    override fun onEditingFinished() {
+        finish()
     }
 
     private fun launchRightMode() {
@@ -80,4 +84,6 @@ class ShopItemActivity : AppCompatActivity() {
         }
 
     }
+
+
 }
